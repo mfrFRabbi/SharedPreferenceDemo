@@ -36,10 +36,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String username = userName.getText().toString();
             String pass = password.getText().toString();
 
+            if(username.equals(null) && pass.equals(null)){
+                Toast.makeText(getBaseContext(),"Please give some input!",Toast.LENGTH_SHORT).show();
+            }else {
+                SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("userKey",username);
+                editor.putString("passKey",pass);
+                editor.commit();
+                userName.setText("");
+                password.setText("");
+                Toast.makeText(getBaseContext(),"Data store successfully done! ",Toast.LENGTH_SHORT).show();
+
+            }
 
         }
         if(v.getId() == R.id.loadBtnId){
-
+            SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+            if(sharedPreferences.contains("userKey") && sharedPreferences.contains("passKey")){
+                String username = sharedPreferences.getString("userKey","Data not found!");
+                String pass = sharedPreferences.getString("passKey","Data not found!");
+                textView.setText(username+ " " + pass);
+            }
         }
     }
 }
