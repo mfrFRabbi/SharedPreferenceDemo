@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    app:showAsAction="always"
+    android:id="@+id/searchBarMenuId"
+    app:actionViewClass="android.widget.SearchView"
+    android:title="S"/>
+    <item
+    app:showAsAction="never"
+    android:id="@+id/redColorMenuId"
+    android:title="Red"/>
+    <item
+    app:showAsAction="never"
+    android:id="@+id/purpleColorMenuId"
+    android:title="Purple"/>
+    <item
+    app:showAsAction="never"
+    android:id="@+id/greenColorMenuId"
+    android:title="Green"/>
+
+
+</menu>
